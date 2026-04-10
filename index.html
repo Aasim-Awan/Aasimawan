@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background: var(--card);
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: var(--card);
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="toggle" onclick="toggleTheme()">🌙</div>
+  <h1>Your Name</h1>
+  <p>Mobile App Developer | Kotlin | Firebase | API Integration</p>
+  <a href="#" class="btn">Download CV</a>
+</header>
+
+<section class="fade-in">
+  <h2>About Me</h2>
+  <p>
+    Passionate Mobile App Developer with strong expertise in Kotlin, Firebase, and RESTful API integration. I build scalable and modern Android apps.
+  </p>
+</section>
+
+<section class="fade-in">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>Kotlin</span>
+    <span>Firebase</span>
+    <span>REST APIs</span>
+    <span>MVVM</span>
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>News App</h3>
+      <p>API-based news app with clean UI and caching.</p>
+    </div>
+    <div class="project">
+      <h3>PDF Viewer</h3>
+      <p>Advanced document viewer with zoom and swipe support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>GitHub: <a href="#">yourgithub</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("light");
+  }
+
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
