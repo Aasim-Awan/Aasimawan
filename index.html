@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Muhammad Aasim | Portfolio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
   <style>
     :root {
@@ -29,41 +32,54 @@
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: 0.3s;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
-    /* HERO */
+    /* PARTICLES */
+    #particles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* HEADER */
     header {
       text-align: center;
-      padding: 110px 20px;
-      background: radial-gradient(circle at top, #1e293b, #0f172a);
+      padding: 100px 20px;
       position: relative;
     }
 
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin-bottom: 15px;
+    }
+
     header h1 {
-      margin: 0;
-      font-size: 3.4rem;
-      animation: fadeDown 1s ease;
+      font-size: 3rem;
+      margin: 10px 0;
     }
 
     header p {
       color: var(--muted);
-      margin-top: 15px;
-      font-size: 1.2rem;
       min-height: 30px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 25px;
-      padding: 12px 22px;
+      margin: 10px 8px;
+      padding: 12px 20px;
       border-radius: 30px;
       background: var(--accent);
       color: #000;
       font-weight: 600;
       transition: 0.3s;
+      text-decoration: none;
     }
 
     .btn:hover {
@@ -82,12 +98,12 @@
 
     /* SECTIONS */
     section {
-      padding: 70px 20px;
-      max-width: 1000px;
+      padding: 60px 20px;
+      max-width: 900px;
       margin: auto;
       opacity: 0;
       transform: translateY(40px);
-      transition: all 0.8s ease;
+      transition: 0.8s;
     }
 
     section.show {
@@ -98,17 +114,14 @@
     h2 {
       border-left: 5px solid var(--accent);
       padding-left: 12px;
-      margin-bottom: 20px;
-      position: relative;
     }
 
     .card {
       background: var(--card);
-      padding: 20px;
+      padding: 18px;
       border-radius: 15px;
-      margin-bottom: 15px;
+      margin-top: 15px;
       transition: 0.3s;
-      animation: fadeUp 0.8s ease;
     }
 
     .card:hover {
@@ -117,67 +130,50 @@
 
     .skills span {
       display: inline-block;
-      background: var(--card);
-      padding: 10px 15px;
+      padding: 8px 12px;
       margin: 5px;
       border-radius: 20px;
-      transition: 0.3s;
+      background: var(--card);
     }
 
     .skills span:hover {
       background: var(--accent);
       color: #000;
-      transform: scale(1.1);
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 20px;
       color: var(--muted);
     }
 
-    a { color: var(--accent); text-decoration: none; }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      background: var(--accent);
-      margin-left: 5px;
-      animation: blink 0.7s infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .profile-img { width: 110px; height: 110px; }
     }
   </style>
 </head>
 
 <body>
 
+<div id="particles"></div>
+
 <header>
   <div class="toggle" onclick="toggleTheme()">🌙</div>
+
+  <img src="profile.jpg" class="profile-img" />
+
   <h1>Muhammad Aasim</h1>
   <p id="typing"></p>
+
   <a href="#contact" class="btn">Contact Me</a>
+  <a href="cv.pdf" download class="btn">Download CV</a>
 </header>
 
 <section>
-  <h2>About Me</h2>
+  <h2>About</h2>
   <div class="card">
-    <p>
-      Passionate Mobile App Developer with hands-on experience in Kotlin, Dart, and Flutter. I build scalable, clean, and modern mobile applications with strong focus on performance and UI/UX.
-    </p>
+    Mobile App Developer skilled in Kotlin, Flutter, Firebase & APIs.
   </div>
 </section>
 
@@ -188,37 +184,36 @@
     <span>Flutter</span>
     <span>Dart</span>
     <span>Firebase</span>
-    <span>REST APIs</span>
+    <span>REST API</span>
     <span>GitHub</span>
-    <span>OOP</span>
-    <span>Android Studio</span>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="card">
+    <b>News App</b>
+    <p>Firebase + API based app</p>
+  </div>
+
+  <div class="card">
+    <b>Video Downloader</b>
+    <p>Multi-platform downloader app</p>
   </div>
 </section>
 
 <section>
   <h2>Experience</h2>
-
-  <div class="card">Leading Folks - Android Developer</div>
-  <div class="card">GenZonix - Android Developer</div>
-  <div class="card">PlayItAgain - Android Developer</div>
-  <div class="card">Rubikkube - Flutter Intern</div>
-  <div class="card">Call Center - All Star BPO</div>
-
-</section>
-
-<section>
-  <h2>Education</h2>
-  <div class="card">
-    BS Computer Science - Allama Iqbal Open University (2018–2023)
-  </div>
+  <div class="card">Android Developer - Leading Folks</div>
+  <div class="card">Flutter Intern - Rubikkube</div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: awanaasim115@gmal.com</p>
-    <p>GitHub: <a href="https://github.com/Aasim-Awan">Aasim-Awan</a></p>
-    <p>LinkedIn: <a href="#">Profile</a></p>
+    Email: awanaasim115@gmail.com <br/>
+    GitHub: <a href="https://github.com/Aasim-Awan">Profile</a>
   </div>
 </section>
 
@@ -227,21 +222,9 @@
 </footer>
 
 <script>
-  // theme toggle
   function toggleTheme() {
     document.body.classList.toggle("light");
   }
-
-  // scroll reveal
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  });
-  sections.forEach(sec => observer.observe(sec));
 
   // typing effect
   const text = "Mobile App Developer | Kotlin | Flutter | Firebase";
@@ -254,6 +237,24 @@
     }
   }
   type();
+
+  // scroll animation
+  const sections = document.querySelectorAll("section");
+  const obs = new IntersectionObserver(e => {
+    e.forEach(s => {
+      if (s.isIntersecting) s.target.classList.add("show");
+    });
+  });
+  sections.forEach(s => obs.observe(s));
+
+  // particles
+  tsParticles.load("particles", {
+    particles: {
+      number: { value: 50 },
+      links: { enable: true, distance: 150 },
+      move: { speed: 1 }
+    }
+  });
 </script>
 
 </body>
