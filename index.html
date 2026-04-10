@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* PARTICLES */
     #particles {
       position: fixed;
       width: 100%;
@@ -44,7 +43,6 @@
       z-index: -1;
     }
 
-    /* HEADER */
     header {
       text-align: center;
       padding: 100px 20px;
@@ -57,7 +55,6 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--accent);
-      margin-bottom: 15px;
     }
 
     header h1 {
@@ -78,13 +75,11 @@
       background: var(--accent);
       color: #000;
       font-weight: 600;
-      transition: 0.3s;
       text-decoration: none;
+      transition: 0.3s;
     }
 
-    .btn:hover {
-      transform: scale(1.08);
-    }
+    .btn:hover { transform: scale(1.08); }
 
     .toggle {
       position: absolute;
@@ -96,7 +91,6 @@
       border-radius: 20px;
     }
 
-    /* SECTIONS */
     section {
       padding: 60px 20px;
       max-width: 900px;
@@ -121,11 +115,6 @@
       padding: 18px;
       border-radius: 15px;
       margin-top: 15px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
     }
 
     .skills span {
@@ -136,11 +125,6 @@
       background: var(--card);
     }
 
-    .skills span:hover {
-      background: var(--accent);
-      color: #000;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -149,7 +133,6 @@
 
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
-      .profile-img { width: 110px; height: 110px; }
     }
   </style>
 </head>
@@ -161,19 +144,19 @@
 <header>
   <div class="toggle" onclick="toggleTheme()">🌙</div>
 
-  <img src="profile.jpeg" class="profile-img" />
+  <img src="profile.jpg" class="profile-img" alt="Profile"/>
 
   <h1>Muhammad Aasim</h1>
   <p id="typing"></p>
 
   <a href="#contact" class="btn">Contact Me</a>
-  <a href="cv.pdf" download class="btn">Download CV</a>
+  <a href="MuhammadAasimAwanResume.pdf" class="btn" download>Download CV</a>
 </header>
 
 <section>
   <h2>About</h2>
   <div class="card">
-    Mobile App Developer skilled in Kotlin, Flutter, Firebase & APIs.
+    Mobile App Developer skilled in Kotlin, Flutter, Firebase & REST APIs.
   </div>
 </section>
 
@@ -191,10 +174,9 @@
 
 <section>
   <h2>Projects</h2>
-
   <div class="card">
     <b>News App</b>
-    <p>Firebase + API based app</p>
+    <p>Firebase + API based Android app</p>
   </div>
 
   <div class="card">
@@ -213,7 +195,7 @@
   <h2>Contact</h2>
   <div class="card">
     Email: awanaasim115@gmail.com <br/>
-    GitHub: <a href="https://github.com/Aasim-Awan">https://github.com/Aasim-Awan</a>
+    GitHub: <a href="https://github.com/Aasim-Awan" target="_blank">GitHub Profile</a>
   </div>
 </section>
 
@@ -229,9 +211,10 @@
   // typing effect
   const text = "Mobile App Developer | Kotlin | Flutter | Firebase";
   let i = 0;
+
   function type() {
     if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
+      document.getElementById("typing").textContent += text.charAt(i);
       i++;
       setTimeout(type, 60);
     }
@@ -240,11 +223,12 @@
 
   // scroll animation
   const sections = document.querySelectorAll("section");
-  const obs = new IntersectionObserver(e => {
-    e.forEach(s => {
-      if (s.isIntersecting) s.target.classList.add("show");
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("show");
     });
   });
+
   sections.forEach(s => obs.observe(s));
 
   // particles
