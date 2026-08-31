@@ -35,7 +35,7 @@ body.light {
   background: linear-gradient(180deg, #e2e8f0 0%, var(--bg) 100%);
 }
 
-body.modal-open {
+body.drawer-open {
   overflow: hidden;
 }
 
@@ -169,9 +169,7 @@ body.modal-open {
 
 .nav-links a,
 .theme-toggle,
-.project-btn,
 .close-modal,
-.gallery-nav,
 .link-btn {
   color: var(--text);
   text-decoration: none;
@@ -185,9 +183,7 @@ body.modal-open {
 
 .nav-links a:hover,
 .theme-toggle:hover,
-.project-btn:hover,
 .close-modal:hover,
-.gallery-nav:hover,
 .link-btn:hover {
   background: var(--accent);
   color: #001018;
@@ -203,9 +199,7 @@ body.modal-open {
 }
 
 .theme-toggle,
-.project-btn,
-.close-modal,
-.gallery-nav {
+.close-modal {
   cursor: pointer;
   font-family: inherit;
   font-weight: 600;
@@ -264,8 +258,7 @@ header h1 {
 .hero-subtitle,
 .section-text,
 .card p,
-.card li,
-.modal-text {
+.card li {
   color: var(--muted);
   line-height: 1.8;
 }
@@ -285,9 +278,7 @@ header h1 {
 
 .hero-actions,
 .project-links,
-.social-links,
-.modal-actions,
-.gallery-controls {
+.social-links {
   margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
@@ -328,8 +319,7 @@ header h1 {
 }
 
 .quick-info,
-.grid,
-.modal-grid {
+.grid {
   display: grid;
   gap: 18px;
 }
@@ -339,8 +329,7 @@ header h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid,
-.modal-grid {
+.grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -375,8 +364,7 @@ h2 {
   font-size: 1.8rem;
 }
 
-.card,
-.modal-content {
+.card {
   background: var(--card);
   border: 1px solid var(--border);
   padding: 22px;
@@ -411,19 +399,15 @@ h2 {
 }
 
 .project-card {
-  cursor: pointer;
   position: relative;
-  overflow: hidden;
 }
 .project-card.featured {
   border-color: rgba(56, 189, 248, 0.45);
   box-shadow: 0 20px 45px rgba(56, 189, 248, 0.12);
 }
 .status-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 2;
+  display: inline-block;
+  margin-bottom: 12px;
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -436,110 +420,23 @@ h2 {
   background: rgba(56, 189, 248, 0.18);
   color: var(--accent);
   border-color: rgba(56, 189, 248, 0.35);
-  animation: pulse-badge 2.4s ease-in-out infinite;
-}
-@keyframes pulse-badge {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.25); }
-  50% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
-}
-
-.modal-top .status-badge {
-  position: static;
-  display: inline-block;
-  margin-top: 8px;
-  animation: none;
-}
-.project-card:hover {
-  transform: translateY(-8px);
-}
-.project-card::after {
-  content: "Click to view details";
-  position: absolute;
-  right: 20px;
-  bottom: 18px;
-  color: var(--accent);
-  font-size: 0.88rem;
-  font-weight: 600;
 }
 
 .project-card h3,
-.experience-card h3,
-.modal-title {
+.experience-card h3 {
   margin: 0 0 10px;
 }
 
-.meta,
-.modal-meta {
+.meta {
   color: var(--accent);
   font-size: 0.92rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.project-thumb,
-.modal-image {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  object-fit: cover;
-}
-
-.project-thumb {
-  height: 190px;
-  margin-bottom: 14px;
-  object-position: top center;
-  background: #fff;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(2, 8, 23, 0.74);
-  z-index: 100;
-}
-
-.modal-overlay.active {
-  display: flex;
-}
-
-.modal-content {
-  width: min(980px, 100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.modal-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.modal-image {
-  height: 320px;
-  object-fit: contain;
-  object-position: top center;
-  background: #0f172a;
-}
-
-.gallery-controls {
-  align-items: center;
-}
-
-.gallery-status {
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
 .feature-list {
   padding-left: 18px;
-  margin: 0;
+  margin: 12px 0 0;
 }
 
 .feature-list li {
@@ -572,8 +469,7 @@ footer {
 
 @media (max-width: 900px) {
   .quick-info,
-  .grid,
-  .modal-grid {
+  .grid {
     grid-template-columns: 1fr;
   }
 }
@@ -598,8 +494,7 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .hero-card,
-  .modal-content {
+  .hero-card {
     padding: 20px 16px;
   }
 
@@ -610,16 +505,9 @@ footer {
   .nav-links a,
   .theme-toggle,
   .btn,
-  .project-btn,
-  .close-modal,
-  .gallery-nav,
   .link-btn {
     width: 100%;
     justify-content: center;
     text-align: center;
-  }
-
-  .modal-image {
-    height: 220px;
   }
 }
