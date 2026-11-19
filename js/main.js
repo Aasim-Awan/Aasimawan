@@ -1,4 +1,4 @@
-const text = "Android Developer • Kotlin • Java • VPN • Photo Editor • RSS News • MVVM";
+const text = "Android Developer • Kotlin • Jetpack Compose • MVVM • Coroutines • Firebase";
 let i = 0;
 function type() {
   const el = document.getElementById("typing");
